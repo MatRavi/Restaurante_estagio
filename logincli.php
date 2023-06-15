@@ -64,6 +64,16 @@
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  
+<!--mask-->
+<script src="mascaras/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+<script src="mascaras/jquery.inputmask.js" type="text/javascript"></script>
+<script src="mascaras/jquery.inputmask.numeric.extensions.js" type="text/javascript"></script>
+  
+  <script>
+
+  </script>
+  
   <script>
 	$("#mostra").click(function() {
         let t= $("#password").attr('type');
@@ -73,7 +83,9 @@
 	  $("#password").attr('type',"password");
         }
     });
+</script>
 
+<script>
 
 	$('#sing').click(function(){
 		$('#ntc').html('<div  class="d-flex m-4 align-items-center"><div class="col-4"></div><div class="custom-loader-min"></div></div>')
@@ -84,15 +96,140 @@ if ($('#sing').text() != "Entrar") {
 $('#ntc').text('Já tem conta?')
 $('#sing').text('Entrar')
 $('#contlog').attr('class','text-wrap2 p-4 p-lg-5 text-center d-flex align-items-center order-md-last')
-$('#formul').html('<div class="d-flex"><div class="w-100">			<h3 class="mb-4" >Cadastrar nova conta</h3></div></div><div class="form-group mb-3">			<label class="label" for="name">Nome</label><input type="text" class="form-control" placeholder="Nome" required></div><div class="form-group mb-3"><label class="label" for="password">Senha</label><input type="password" id="password" class="form-control" maxlength="50" placeholder="Senha" required>	<button class="btn-mostrinfo" id="mostra"><i class="fas fa-eye"></i></button>	<label class="label" for="CEP">CEP</label><input type="text" id="cep" class="form-control" placeholder="cep" required></div><div class="form-group mb-3">	'+
+$('#formul').html('<div class="d-flex"><div class="w-100">			<h3 class="mb-4" >Cadastrar nova conta</h3></div></div><div class="form-group mb-3">'+			
+'<label class="label" for="name">Nome</label><input type="text" id="nome" class="form-control" placeholder="Nome" required>'+
+'</div><div class="form-group mb-3">'+
+
+  '<label class="label" for="CPF">CPF</label><input type="text" id="cpf" class="form-control" placeholder="CPF" required>'+
+'</div><div class="form-group mb-3">'+
+
+'<label class="label" for="fone">Telefone</label><input type="text" id="fone" class="form-control" placeholder="Telefone" required>'+
+'</div><div class="form-group mb-3">'+
+
+'<label class="label" for="nasc">Data de Nascimento</label><input type="date" id="nasc" class="form-control" required>'+
+'</div><div class="form-group mb-3">'+
+
+'<label class="label" for="email">Email</label><input type="email" id="email" class="form-control" placeholder="Email" required>'+
+'</div><div class="form-group mb-3">'+
+
+'<label class="label" for="password">Senha</label><input type="password" id="password" class="form-control" maxlength="50" placeholder="Senha" required><button class="btn-mostrinfo" id="mostra"><i class="fas fa-eye"></i></button>'+
+'</div><div class="form-group mb-3">'+
+
+'<label class="label" for="CEP">CEP</label><input type="text" id="cep" class="form-control" placeholder="cep" required>'+
+'</div><div class="form-group mb-3">'+
+
   '<label class="label" for="Estado">Estado</label> <select class="form-control" id="estados-list"></select>'+
+'</div><div class="form-group mb-3">'+
+
   '<label class="label" for="Cidade">Cidade</label> <select class="form-control" id="cidade-list"></select>'+
-  '<label class="label" for="name">Nome</label><input type="text" class="form-control" placeholder="" required></div><div class="form-group mb-3">'+
-  '<label class="label" for="password">Senha</label><input type="password" id="password" class="form-control" maxlength="50" placeholder="Senha" required>	'+
-'</div>		<div class="form-group"><button id="entrar" class="form-control btn btn-info">cadastrar-se</button></div>')
+'</div><div class="form-group mb-3">'+
+
+  '<label class="label" for="bairro">Bairro</label><input type="text" id="bairro" class="form-control" placeholder="bairro" required>'+
+'</div><div class="form-group mb-3">'+
+
+  '<label class="label" for="Rua">Rua</label><input type="text" id="rua" class="form-control" placeholder="Rua" required>	'+
+'</div><div class="form-group mb-3">'+
+
+'<label class="label" for="Número">Número</label><input type="number" id="numero" class="form-control" placeholder="Número" required>'+
+'</div><div class="form-group mb-3">'+
+
+  '<label class="label" for="Complemento">Complemento</label><input type="text" id="complemento" class="form-control" placeholder="Complemento" required>'+
+'</div><div class="form-group mb-3">'+
+
+'</div>	<div class="form-group"><button id="cadastrar" class="form-control btn btn-info">cadastrar-se</button></div>')
 			
+//enviar dados para cadastrar
+$('#cadastrar').click(function(){
+	let nome = $('#nome').val();
+	let cpf = $('#cpf').val();
+	let fone = $('#fone').val();
+	let nasc = $('#nasc').val();
+	let email = $('#email').val();
+	let senha = $('#password').val();
+	let cep = $('#cep').val();
+	let estado = $('#estados-list').val();
+	let cidade = $('#cidade-list').val();
+	let bairro = $('#bairro').val();
+	let rua = $('#rua').val();
+	let numero = $('#numero').val();
+	let complemento = $('#complemento').val();
+	alert(nome+cpf+fone+nasc+email+senha+cep+estado+cidade+bairro+rua+numero+complemento)
+})
 
 
+
+//mascaras de input
+$("#cpf").inputmask("999.999.999-99");
+$("#cep").inputmask("99999-999");
+$("#fone").inputmask("(99)99999-9999");
+
+//verificador de cpf
+function validaCPF(cpf) {
+  cpf = cpf.replace(/[^\d]+/g, ''); // Remove todos os caracteres não numéricos do CPF
+  if (cpf == '') { // Verifica se o CPF está vazio
+    return false; // Retorna falso, indicando um CPF inválido
+  }
+  // Elimina CPFs inválidos conhecidos
+  if (
+    cpf.length != 11 || // Verifica se o CPF possui 11 dígitos
+    cpf == "00000000000" || 
+    cpf == "11111111111" || 
+    cpf == "22222222222" || 
+    cpf == "33333333333" || 
+    cpf == "44444444444" ||
+    cpf == "55555555555" || 
+    cpf == "66666666666" || 
+    cpf == "77777777777" || 
+    cpf == "88888888888" || 
+    cpf == "99999999999"
+  ) {
+    return false; // Retorna falso, indicando um CPF inválido
+  }
+  // Valida o 1º dígito verificador
+  var add = 0;
+  for (var i = 0; i < 9; i++) { // Percorre os primeiros 9 dígitos do CPF
+    add += parseInt(cpf.charAt(i)) * (10 - i); // Soma a multiplicação do dígito pelo seu peso
+  }
+  var rest = 11 - (add % 11); // Calcula o dígito verificador
+  if (rest == 10 || rest == 11) {
+    rest = 0;
+  }
+  if (rest != parseInt(cpf.charAt(9))) { // Verifica se o dígito verificador é igual ao esperado
+    return false; // Retorna falso, indicando um CPF inválido
+  }
+  // Valida o 2º dígito verificador
+  add = 0;
+  for (var i = 0; i < 10; i++) { // Percorre os primeiros 10 dígitos do CPF
+    add += parseInt(cpf.charAt(i)) * (11 - i); // Soma a multiplicação do dígito pelo seu peso
+  }
+  rest = 11 - (add % 11); // Calcula o dígito verificador
+  if (rest == 10 || rest == 11) {
+    rest = 0;
+  }
+  if (rest != parseInt(cpf.charAt(10))) { // Verifica se o dígito verificador é igual ao esperado
+    return false; // Retorna falso, indicando um CPF inválido
+  }
+  return true; // Retorna verdadeiro, indicando um CPF válido
+}
+
+// Função para exibir mensagem de CPF inválido
+function cpfinvalido() {
+  $("#cpf").addClass("is-invalid"); // Adiciona a classe "is-invalid" ao campo de CPF para destacar o erro
+  $("#cpf-feedback").html("CPF inválido"); // Define o texto de feedback para indicar que o CPF é inválido
+}
+
+// Evento de validação do CPF ao perder o foco do campo
+$("#cpf").on("blur", function() {
+  var cpf = $(this).val(); // Obtém o valor digitado no campo de CPF
+  if (!validaCPF(cpf)) { // Verifica se o CPF é inválido
+    cpfinvalido(); // Chama a função para exibir a mensagem de CPF inválido
+  } else {
+    $("#cpf").removeClass("is-invalid"); // Remove a classe "is-invalid" do campo de CPF
+    $("#cpf-feedback").html(""); // Remove o texto de feedback
+  }
+});
+
+//caso o cliente queira mudar a cidade e o estado
 $('#estados-list').change(function(){
         var esta=$(this).val().split("|")
         var estado=esta[0]
@@ -185,8 +322,10 @@ error: function(error) {
 console.log("Ocorreu um erro ao acessar a API do IBGE: " + error);
 }
 });
-
-$('#')
+				//informações finais
+              $('#bairro').val(data.bairro);
+			  $('#rua').val(data.logradouro);
+              $('#complemento').val(data.complemento);
 
 
 		} else {
@@ -227,7 +366,8 @@ $("#password").attr('type',"password");
 }
 		}
 	})
-
+</script>
+<script>
 	$('#entrar').click(function(){
 		$('#contlog').html('<div class="col-4"></div><div class="custom-loader"></div>')
 		window.setTimeout('location.reload()',3000)
