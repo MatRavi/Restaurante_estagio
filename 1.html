@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de uso da API do IBGE</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Estados do Brasil</h1>
+  <select id="estados-list">
+
+  </select>
+  <h1>cidades do estado doBrasil</h1>
+  <select id="cidade-list"></select>
+
+  <script>
+    $(document).ready(function() {
+      // Fazer a chamada à API do IBGE
+      $.ajax({
+        url: "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome",
+        method: "GET",
+        success: function(response) {
+          // Manipular os dados retornados
+          var estados = response;
+          var estadosList = $("#estados-list");
+
+          estados.forEach(function(estado) {
+            // Criar um item de lista para cada estado
+            var listItem = $("<option>").text(estado.nome+"|"+estado.sigla);
+            estadosList.append(listItem);
+          });
+        },
+        error: function(error) {
+          console.log("Ocorreu um erro ao acessar a API do IBGE: " + error);
+        }
+      });
+      $('#estados-list').change(function(){
+        var esta=$(this).val().split("|")
+        var estado=esta[0]
+        var sigla=esta[1]
+      $.ajax({
+        url: "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+sigla+"/municipios?orderBy=nome",
+        method: "GET",
+        success: function(response) {
+          // Manipular os dados retornados
+          var cidade = response;
+          $('#cidade-list').html('')
+          var cidadeList = $("#cidade-list");
+          
+          cidade.forEach(function(cidade) {
+            // Criar um item de lista para cada estado
+            var Uf=cidade.microrregiao.mesorregiao.UF.nome;
+            if(estado==Uf){
+            var listItem = $("<option>").text(cidade.nome);
+           
+            cidadeList.append(listItem);
+            }
+          });
+        },
+        error: function(error) {
+          console.log("Ocorreu um erro ao acessar a API do IBGE: " + error);
+        }
+      });
+      });
+    });
+  </script>
+</body>
+</html>

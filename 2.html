@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consulta de Endereço</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Consulta de Endereço</h1>
+  
+  <form id="cep-form">
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" maxlength="9" placeholder="Digite o CEP">
+  </form>
+  
+  <div id="address-result" style="display: none;">
+    <h2>Endereço:</h2>
+    <p><strong>CEP:</strong> <span id="cep-result"></span></p>
+    <p><strong>Logradouro:</strong> <span id="logradouro-result"></span></p>
+    <p><strong>Complemento:</strong> <span id="complemento-result"></span></p>
+    <p><strong>Bairro:</strong> <span id="bairro-result"></span></p>
+    <p><strong>Localidade:</strong> <span id="localidade-result"></span></p>
+    <p><strong>UF:</strong> <span id="uf-result"></span></p>
+  </div>
+  
+  <script>
+    $(document).ready(function() {
+      $('#cep-form').change(function(event) {
+        event.preventDefault();
+        var cep = $('#cep').val().replace(/\D/g, '');
+        
+        if (cep.length !== 8) {
+          alert('O CEP deve conter 8 dígitos!');
+          return;
+        }
+        
+        $.ajax({
+          url: 'https://viacep.com.br/ws/' + cep + '/json/',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            if (!data.erro) {
+              $('#cep-result').text(data.cep);
+              $('#logradouro-result').text(data.logradouro);
+              $('#complemento-result').text(data.complemento);
+              $('#bairro-result').text(data.bairro);
+              $('#localidade-result').text(data.localidade);
+              $('#uf-result').text(data.uf);
+              $('#address-result').show();
+            } else {
+              alert('Endereço não encontrado!');
+            }
+          },
+          error: function() {
+            alert('Ocorreu um erro ao consultar o endereço!');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
