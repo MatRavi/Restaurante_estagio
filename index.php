@@ -7,11 +7,10 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Foodee &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>Mario's Cardápio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+	
 
   <!-- 
 	//////////////////////////////////////////////////////
@@ -39,7 +38,7 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="images/favicon.ico">
 
 	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
 	
@@ -95,103 +94,37 @@
 		<div class="js-sticky">
 			<div class="fh5co-main-nav">
 				<div class="container-fluid">
-					<div class="fh5co-menu-1">
-						<a href="#" data-nav-section="about">Sobre</a>
-						<a href="#" data-nav-section="features">Famosos</a>
-					</div>
-					<div class="fh5co-logo">
-						<a href="#">Mario's</a>
-					</div>
-					<div class="fh5co-menu-2">
-						<a href="#" data-nav-section="menu">Menu</a>
-						<a href="#" data-nav-section="reservation">Reserva</a>
-						<a href="login.php">login</a>
-					</div>
+					<?php
+							if(!isset($_GET['index'])){
+							echo"<div class='fh5co-menu-1 col-3'>
+								<a href='#' id='login'>login</a>
+								</div>
+								<div class='fh5co-logo'>
+									<a href='#'>Mario's Pizzeria</a>
+								</div>
+								<div class='fh5co-menu-2'>
+							</div>";
+					    }else{
+							echo "<div class='fh5co-menu-1'>
+							<a href='#' id='carrinho'><i class='fas fa-shopping-cart'></i> Compras
+							</a>
+							</div>
+							<div class='fh5co-logo'>
+								<a href='#'>Mario's Pizzeria</a>
+							</div>
+							<div class='fh5co-menu-2'>
+							<a href='#' id='perfil'><i class='fas fa-user'></i> Perfil</a>
+							<a href='#' id='sair'><i class='fas fa-sign-out-alt'></i>
+							Sair</a>
+							</div>";
+						}
+						
+					?>
 				</div>
-				
-			</div>
-		</div>
-
-		<div id="fh5co-about" data-section="about">
-			<div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/res_img_1.jpg)"></div>
-			<div class="fh5co-2col fh5co-text">
-				<h2 class="heading to-animate">About Us</h2>
-				<p class="to-animate"><span class="firstcharacter">F</span>ar far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
-				<p class="text-center to-animate"><a href="#" class="btn btn-primary btn-outline">Get in touch</a></p>
 			</div>
 		</div>
 
 		
-
-		<div id="fh5co-featured" data-section="features">
-			<div class="container">
-				<div class="row text-center fh5co-heading row-padded">
-					<div class="col-md-8 col-md-offset-2">
-						<h2 class="heading to-animate">Featured Dishes</h2>
-						<p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="fh5co-grid">
-						<div class="fh5co-v-half to-animate-2">
-							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_1.jpg)"></div>
-							<div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
-								<h2>Fresh Mushrooms</h2>
-								<span class="pricing">$7.50</span>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							</div>
-						</div>
-						<div class="fh5co-v-half">
-							<div class="fh5co-h-row-2 to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_2.jpg)"></div>
-								<div class="fh5co-v-col-2 fh5co-text arrow-left">
-									<h2>Grilled Chiken Salad</h2>
-									<span class="pricing">$12.00</span>
-									<p>Far far away, behind the word mountains.</p>
-								</div>
-							</div>
-							<div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_8.jpg)"></div>
-								<div class="fh5co-v-col-2 fh5co-text arrow-right">
-									<h2>Cheese and Garlic Toast</h2>
-									<span class="pricing">$4.50</span>
-									<p>Far far away, behind the word mountains.</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="fh5co-v-half">
-							<div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_7.jpg)"></div>
-								<div class="fh5co-v-col-2 fh5co-text arrow-right">
-									<h2>Organic Egg</h2>
-									<span class="pricing">$4.99</span>
-									<p>Far far away, behind the word mountains.</p>
-								</div>
-							</div>
-							<div class="fh5co-h-row-2 to-animate-2">
-								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_6.jpg)"></div>
-								<div class="fh5co-v-col-2 fh5co-text arrow-left">
-									<h2>Salad with Crispy Chicken</h2>
-									<span class="pricing">$8.50</span>
-									<p>Far far away, behind the word mountains.</p>
-								</div>
-							</div>
-						</div>
-						<div class="fh5co-v-half to-animate-2">
-							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_3.jpg)"></div>
-							<div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
-								<h2>Tomato Soup with Chicken</h2>
-								<span class="pricing">$12.99</span>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
 
 		<div id="fh5co-type" style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5">
 			<div class="fh5co-overlay"></div>
@@ -199,26 +132,22 @@
 				<div class="row">
 					<div class="col-md-3 to-animate">
 						<div class="fh5co-type">
-							<h3 class="with-icon icon-1">Fruits</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3 class="with-icon icon-1">Bebidas</h3>
 						</div>
 					</div>
 					<div class="col-md-3 to-animate">
 						<div class="fh5co-type">
-							<h3 class="with-icon icon-2">Sea food</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3 class="with-icon icon-2">Pizzas</h3>
 						</div>
 					</div>
 					<div class="col-md-3 to-animate">
 						<div class="fh5co-type">
-							<h3 class="with-icon icon-3">Vegetables</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3 class="with-icon icon-3">Saladas</h3>
 						</div>
 					</div>
 					<div class="col-md-3 to-animate">
 						<div class="fh5co-type">
-							<h3 class="with-icon icon-4">Meat</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3 class="with-icon icon-4">Pizzas Doces</h3>
 						</div>
 					</div>
 				</div>
@@ -227,320 +156,147 @@
 
 		<div id="fh5co-menus" data-section="menu">
 			<div class="container">
-				<div class="row text-center fh5co-heading row-padded">
+				<div class="row text-center fh5co-heading row-padded" id='cardapio'>
 					<div class="col-md-8 col-md-offset-2">
-						<h2 class="heading to-animate">Food Menu</h2>
-						<p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h2 class="heading to-animate">Cardápio</h2>
 					</div>
 				</div>
-				<div class="row row-padded">
-					<div class="col-md-6">
+					<div class='row'>
+					<div class="col-md-6" id="bebidas">
 						<div class="fh5co-food-menu to-animate-2">
-							<h2 class="fh5co-drinks">Drinks</h2>
-							<ul>
+							<h2 class="fh5co-bebida">Bebidas</h2>
+							<?php
+							include 'banco/banco.php';
+							$sql = "select * from tbproduto where tipo='bebidas'";
+							$consulta = $conexao->query($sql);
+							if($consulta){
+							  if ($consulta->num_rows > 0){
+								while(  $linha=$consulta->fetch_array(MYSQLI_ASSOC)){
+								echo "<ul>
 								<li>
-									<div class="fh5co-food-desc">
+									<div class='fh5co-food-desc pro' id='".$linha['id_pro']."'>
 										<figure>
-											<img src="images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src='images/".$linha['id_pro'].".jpg' class='img-responsive'>
 										</figure>
 										<div>
-											<h3>Pineapple Juice</h3>
-											<p>Far far away, behind the word mountains.</p>
+											<h3>".$linha['nome']."</h3>
+											<p>".$linha['descricao']."</p>
 										</div>
 									</div>
-									<div class="fh5co-food-pricing">
-										$17.50
+									<div class='fh5co-food-pricing'>R$ 
+									".$linha['preco']."
 									</div>
 								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Green Juice</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$7.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Soft Drinks</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Carlo Rosee Drinks</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-							</ul>
+							</ul>";
+								}//fim while bebidas
+							  }
+							}
+							?>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6" id='pizzas'>
 						<div class="fh5co-food-menu to-animate-2">
-							<h2 class="fh5co-dishes">Steak</h2>
-							<ul>
+							<h2 class="fh5co-pizza">Pizzas</h2>
+							<?php
+							include 'banco/banco.php';
+							$sql = "select * from tbproduto where tipo='pizzas'";
+							$consulta = $conexao->query($sql);
+							if($consulta){
+							  if ($consulta->num_rows > 0){
+								while(  $linha=$consulta->fetch_array(MYSQLI_ASSOC)){
+								echo "<ul>
 								<li>
-									<div class="fh5co-food-desc">
+									<div class='fh5co-food-desc pro' id='".$linha['id_pro']."'>
 										<figure>
-											<img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src='images/".$linha['id_pro'].".jpg' class='img-responsive'>
 										</figure>
 										<div>
-											<h3>Beef Steak</h3>
-											<p>Far far away, behind the word mountains.</p>
+											<h3>".$linha['nome']."</h3>
+											<p>".$linha['descricao']."</p>
 										</div>
 									</div>
-									<div class="fh5co-food-pricing">
-										$17.50
+									<div class='fh5co-food-pricing'>R$ 
+									".$linha['preco']."
 									</div>
 								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_4.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Tomato with Chicken</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$7.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_2.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Sausages from Italy</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_8.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Beef Grilled</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-							</ul>
+							</ul>";
+								}//fim while pizzas
+							  }
+							}
+							?>
 						</div>
 					</div>
-					<div class="col-md-6">
+					</div>
+					<div class='row'>
+					<div class="col-md-6" id='saladas'>
 						<div class="fh5co-food-menu to-animate-2">
-							<h2 class="fh5co-drinks">Drinks</h2>
-							<ul>
+							<h2 class="fh5co-salada">Saladas</h2>
+							<?php
+							include 'banco/banco.php';
+							$sql = "select * from tbproduto where tipo='saladas'";
+							$consulta = $conexao->query($sql);
+							if($consulta){
+							  if ($consulta->num_rows > 0){
+								while(  $linha=$consulta->fetch_array(MYSQLI_ASSOC)){
+								echo "<ul>
 								<li>
-									<div class="fh5co-food-desc">
+									<div class='fh5co-food-desc pro' id='".$linha['id_pro']."'>
 										<figure>
-											<img src="images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src='images/".$linha['id_pro'].".jpg' class='img-responsive'>
 										</figure>
 										<div>
-											<h3>Pineapple Juice</h3>
-											<p>Far far away, behind the word mountains.</p>
+											<h3>".$linha['nome']."</h3>
+											<p>".$linha['descricao']."</p>
 										</div>
 									</div>
-									<div class="fh5co-food-pricing">
-										$17.50
+									<div class='fh5co-food-pricing'>R$ 
+									".$linha['preco']."
 									</div>
 								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Green Juice</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$7.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Soft Drinks</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Carlo Rosee Drinks</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-							</ul>
+							</ul>";
+								}//fim while saladas
+							  }
+							}
+							?>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6" id='pizzas_doces'>
 						<div class="fh5co-food-menu to-animate-2">
-							<h2 class="fh5co-dishes">Steak</h2>
-							<ul>
+							<h2 class="fh5co-doces">Pizzas Doces</h2>
+							<?php
+							include 'banco/banco.php';
+							$sql = "select * from tbproduto where tipo='pizzas doces'";
+							$consulta = $conexao->query($sql);
+							if($consulta){
+							  if ($consulta->num_rows > 0){
+								while(  $linha=$consulta->fetch_array(MYSQLI_ASSOC)){
+								echo "<ul>
 								<li>
-									<div class="fh5co-food-desc">
+									<div class='fh5co-food-desc pro' id='".$linha['id_pro']."'>
 										<figure>
-											<img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src='images/".$linha['id_pro'].".jpg' class='img-responsive'>
 										</figure>
 										<div>
-											<h3>Beef Steak</h3>
-											<p>Far far away, behind the word mountains.</p>
+											<h3>".$linha['nome']."</h3>
+											<p>".$linha['descricao']."</p>
 										</div>
 									</div>
-									<div class="fh5co-food-pricing">
-										$17.50
+									<div class='fh5co-food-pricing'>R$ 
+									".$linha['preco']."
 									</div>
 								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_4.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Tomato with Chicken</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$7.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_2.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Sausages from Italy</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_8.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Beef Grilled</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-							</ul>
+							</ul>";
+								}//fim while doces
+							  }
+							}
+							?>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-md-offset-4 text-center to-animate-2">
-						<p><a href="#" class="btn btn-primary btn-outline">More Food Menu</a></p>
 					</div>
-				</div>
-			</div>
-		</div>
 
-		<div id="fh5co-contact" data-section="reservation">
-			<div class="container">
-				<div class="row text-center fh5co-heading row-padded">
-					<div class="col-md-8 col-md-offset-2">
-						<h2 class="heading to-animate">Reserve a Table</h2>
-						<p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 to-animate-2">
-						<h3>Contact Info</h3>
-						<ul class="fh5co-contact-info">
-							<li class="fh5co-contact-address ">
-								<i class="icon-home"></i>
-								5555 Love Paradise 56 New Clity 5655, <br>Excel Tower United Kingdom
-							</li>
-							<li><i class="icon-phone"></i> (123) 465-6789</li>
-							<li><i class="icon-envelope"></i>info@freehtml5.co</li>
-							<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>
-						</ul>
-					</div>
-					<div class="col-md-6 to-animate-2">
-						<h3>Reservation Form</h3>
-						<div class="form-group ">
-							<label for="nome" class="sr-only">Nome</label>
-							<input id="nome" class="form-control" placeholder="Nome" type="text">
-						</div>
-						<div class="form-group ">
-							<label for="email" class="sr-only">Email</label>
-							<input id="email" class="form-control" placeholder="Email" type="email">
-						</div>
-						<div class="form-group ">
-							<label for="qtd" class="sr-only">N* de pessoas</label>
-							<input id="qtd" class="form-control" placeholder="N* de pessoas" type="qtd">
-						</div>
-						<div class="form-group ">
-							<label for="date" class="sr-only">Date</label>
-							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
-						</div>
-						<div class="form-group ">
-							<input class="btn btn-primary" value="Enviar pedido" type="submit">
-						</div>
-						</div>
+
 				</div>
 			</div>
-		</div>
 
 		
 	</div>
@@ -554,23 +310,65 @@
 					<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="fh5co-social">
-						<li class="to-animate-2"><a href="#"><i class="icon-facebook"></i></a></li>
-						<li class="to-animate-2"><a href="#"><i class="icon-twitter"></i></a></li>
-						<li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li>
-					</ul>
-				</div>
-			</div>
 		</div>
 	</div>
 
 
 	
-	
-	
-	
+
+
+	<!--modal de perfil-->
+							
+<div class="modal" tabindex="-1" id='modalItem' role="dialog" aria-labelledby="Modaldet" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="Modaldet">Detalhes</h5>
+			<button type="button" class="close" id='fecharItem'>
+				<i class='fas fa-x'></i></div>
+		<div class="modal-body" id='itemDetail'>
+		</div>
+    </div>
+  </div>
+</div>
+
+	<!--modal de perfil-->
+	<div class="modal" id="perfilModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="modal-title" id="ModalLabel">Perfil</h5>
+          <button type="button" class="close" id='fecharperfil'>
+            <i class='fas fa-x'></i>
+          </button>
+        </div>
+        <div class="modal-perfil modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+	<!--modal de carrinho    consertar= rolagem-->
+	<div class="modal" id="carrinhoModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Carrinho de Compras</h5>
+          <button type="button" class="close" id='fecharcar'>
+            <i class='fas fa-x'></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="cart-items"></div>
+          <div id="total">Total: R$ <span id="cart-total">0.00</span></div>
+        </div>
+		<div class="modal-footer" id="modal-footer">
+
+		</div>
+      </div>
+    </div>
+  </div>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -588,13 +386,182 @@
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
 	<script>
-		$(function () {
-	       $('#date').datetimepicker();
-	   });
+		$('#perfil').click(function(){
+			//pega valor de index/codcli
+  			var urlAtual = window.location.href;
+			var urlClass = new URL(urlAtual); 
+      		var cli = urlClass.searchParams.get("index");
+			$.post('crud_card/BPerfil.php',{cli:cli},function(cliente){
+				$('.modal-perfil').html(cliente);
+			})
+			$('#perfilModal').fadeIn();
+		});
+		$('#fecharperfil').click(function(){
+			$('#perfilModal').fadeOut();
+		})
+
+        /*carrinho*/
+		$('#carrinho').click(function(){
+			$('#carrinhoModal').fadeIn();
+		});
+		$('#fecharcar').click(function(){
+			$('#carrinhoModal').fadeOut();
+		})
+			
+		$('#cardapio').click(function(){
+			window.location.reload();
+		});
+
+		$('.with-icon').click(function(){
+			$('.with-icon').removeClass('active');
+			$(this).addClass('active');
+
+			let tipo = $(this).text().toLowerCase();
+
+			if(tipo=='pizzas'){
+				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+					$('#pizzas').html(lista);
+					$('#pizzas').removeClass('col-md-6');
+					$('#pizzas').addClass('col-md-12');
+					$('.pro').click(clickDeItem);
+				})//fim post
+				$('#bebidas').html('');
+				$('#saladas').html('');
+				$('#pizzas_doces').html('');
+			}else if(tipo=='bebidas'){
+				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+					$('#bebidas').html(lista);
+					$('#bebidas').removeClass('col-md-6');
+					$('#bebidas').addClass('col-md-12');
+					$('.pro').click(clickDeItem);
+				})//fim post
+				$('#pizzas').html('');
+				$('#saladas').html('');
+				$('#pizzas_doces').html('');
+			} else if(tipo=='saladas'){
+				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+					$('#saladas').html(lista);
+					$('#saladas').removeClass('col-md-6');
+					$('#saladas').addClass('col-md-12');
+					$('.pro').click(clickDeItem);
+				})//fim post
+				$('#bebidas').html('');
+				$('#pizzas').html('');
+				$('#pizzas_doces').html('');
+			}else if(tipo=='pizzas doces'){
+				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+					$('#pizzas_doces').html(lista);
+					$('#pizzas_doces').removeClass('col-md-6');
+					$('#pizzas_doces').addClass('col-md-12');
+					$('.pro').click(clickDeItem);
+				})//fim post
+				$('#bebidas').html('');
+				$('#saladas').html('');
+				$('#pizzas').html('');
+			}
+			//fim monta cardapio
+		})
+			//começo do monta pg produto
+			$('.pro').click(clickDeItem);
+				function clickDeItem(){
+				let id=$(this).attr('id');
+				$.post('crud_card/BItem.php',{id:id},function(dadosI){
+					let dados = dadosI.split('|')
+					let nome =dados[0]; 
+					let preco =dados[1]; 
+				$('#itemDetail').html('<div class="row"><div class="col-lg-12"><div class="row"> <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"> <div><div class="fade active in" id="single-tab1"> <img src="images/'+id+'.jpg" alt="" /></div></div></div><div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">  <div class="single-product-details"> <h1>'+nome+'</h1>  <div class="single-pro-price">      <span class="single-regular">R$ '+preco+'</span>      </div>    <div class="d-flex">Quantidade: <span id="qtd"></span>  '
+				+'<input type="range" min="0" max="10" value="0" class="form-control qtd" />  '
+				+'<button type="button" class="btn btn-info ml-3 adicionaItem" id="'+id+'"><i class="fas fa-plus"></i> Adicionar</button></div></div> </div>  </div> </div></div>')
+				$('#modalItem').fadeIn();
+					$('.qtd').change(function(){
+						$('#qtd').text($(this).val())
+
+					})
+				//começo add carrinho
+				var carItems = [];
+				var qtdTotal = 0;
+				var carTotal = 0;
+				// Função para adicionar um item ao carrinho de compras
+				function addToCart(id,qtd,price) {
+					carItems.push({ id: id});
+					qtdTotal += 1 ;//consertar
+					carTotal += price;//consertar
+					$("#cart-items").append("<div class='fh5co-food-menu' id='item"+id+"'><div class='fh5co-food-desc1 '><figure><img src='images/"+id+".jpg' style='width:20%;height:100%;float:left;' class='img-responsive'></figure><div><h3>"+nome+"</h3><p>"+qtd+" Unidades | Preço p/U :R$ "+preco+"</p><button class='btn btn-danger delete-item' id='" + id + "|"+preco+"'><i class='fas fa-trash'></i> Excluir</button></div></div></div>");
+					$("#cart-total").text(carTotal);
+					if(qtdTotal>0){
+						$('#modal-footer').html('<button id="finalComprar" class="btn btn-info">Finalizar Compra</button>')
+					}else{
+						$('#modal-footer').html('')
+					}
+				}
+
+				$('#finalComprar').click(function(){
+					//consertar finalizar
+				})
+				//começo deleta
+				$(document).on('click', '.delete-item', function() {
+				var itemArray = $(this).attr('id').split("|");
+				var itemId = itemArray[0];
+				var itempreco = itemArray[1];
+				var itemIndex = -1;
+				for (var i = 0; i < carItems.length; i++) {
+					if (carItems[i].id === itemId) {
+					itemIndex = i;
+					break;
+					}
+				}
+				if (itemIndex !== -1) {
+					carItems.splice(itemIndex, 1);
+					$("#item" + itemId).remove();
+					qtdTotal -= 1 ;
+					carTotal -= itempreco;
+					$("#cart-total").text(carTotal);
+					if(qtdTotal>0){
+						$('#modal-footer').html('<button id="finalComprar" class="btn btn-info">Finalizar Compra</button>')
+					}else{
+						$('#modal-footer').html('')
+					}
+					// Atualize o total do carrinho e a quantidade total aqui
+				}
+				});//fim deleta do carrinho
+
+				// Manipulador de evento para adicionar um item ao carrinho de compras
+				$(".adicionaItem").click(function() {
+					let id = $(this).attr('id');
+					let qtd = $('#qtd').text();
+					let price=preco;
+					
+					var urlAtual = window.location.href;
+					var urlClass = new URL(urlAtual); 
+					var cli = urlClass.searchParams.get("index");
+					if(cli){
+						if(qtd>0){
+						addToCart(id,qtd,price)
+						swal('Item adicionado ao seu carrinho!',{icon:'success'});
+						$('#modalItem').fadeOut();
+						}
+					}else{
+						$('#modalItem').fadeOut();
+						swal('Faça Login para continuar',{icon:'warning'});
+					}
+				});
+				/*fim carrinho*/
+			})
+			}//fim da clickDeItem
+			$('#fecharItem').click(function(){
+				$('#modalItem').fadeOut();
+			})
+			//fim modal de Item
+			$('#login').click(function(){
+				window.location.href = "logincli.php";
+			})
 	</script>
+
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
 
+	<!-- Sweetalert -->    
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</body>
 </html>
 
