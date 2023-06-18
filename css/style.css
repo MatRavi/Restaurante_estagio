@@ -182,7 +182,7 @@ p {
 .form-control:active, .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #fb6e14;
+  border-color: #00adfd;
 }
 
 /*
@@ -213,7 +213,7 @@ p {
   font-size: 300px;
   font-weight: 700;
   font-style: italic;
-  color: #fd0000;
+  color: #ff0000;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -306,7 +306,7 @@ p {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
-  display: inline;
+  *display: inline;
 }
 .fh5co-main-nav .fh5co-menu-1 a:hover, .fh5co-main-nav .fh5co-menu-1 a:focus, .fh5co-main-nav .fh5co-menu-1 a:active,
 .fh5co-main-nav .fh5co-menu-2 a:hover,
@@ -325,14 +325,14 @@ p {
 }
 .fh5co-main-nav .fh5co-menu-1 {
   text-align: right;
-  width: 40.33%;
+  width: 33.33%;
 }
 .fh5co-main-nav .fh5co-menu-1 a {
   vertical-align: middle;
 }
 .fh5co-main-nav .fh5co-logo {
   text-align: center;
-  width: 19.33%;
+  width: 33.33%;
   font-size: 40px;
   font-family: "Playfair Display", serif;
   font-weight: 700;
@@ -345,7 +345,7 @@ p {
 }
 .fh5co-main-nav .fh5co-menu-2 {
   text-align: left;
-  width: 40.33%;
+  width: 33.33%;
 }
 
 .fh5co-heading .heading {
@@ -432,10 +432,6 @@ p {
   left: 50%;
   background: #fb6e14;
   margin-left: -20px;
-}
-#fh5co-about .fh5co-text p {
-  line-height: 2;
-  color: #a99c92;
 }
 #fh5co-about .fh5co-text p span.firstcharacter {
   float: left;
@@ -803,11 +799,11 @@ p {
   font-style: italic;
   position: relative;
 }
-#fh5co-menus .fh5co-food-menu h2.fh5co-drinks {
-  padding-left: 50px;
+#fh5co-menus .fh5co-food-menu h2.fh5co-salada {
+  padding-left: 80px;
 }
-#fh5co-menus .fh5co-food-menu h2.fh5co-drinks:before {
-  background: url(../images/0301-pina-colada.png) no-repeat;
+#fh5co-menus .fh5co-food-menu h2.fh5co-salada:before {
+  background: url(../images/salada.png) no-repeat;
   content: "";
   position: absolute;
   top: -20px;
@@ -815,18 +811,43 @@ p {
   width: 64px;
   height: 64px;
 }
-#fh5co-menus .fh5co-food-menu h2.fh5co-dishes {
+#fh5co-menus .fh5co-food-menu h2.fh5co-pizza {
   padding-left: 80px;
 }
-#fh5co-menus .fh5co-food-menu h2.fh5co-dishes:before {
-  background: url(../images/0302-steak.png) no-repeat;
+#fh5co-menus .fh5co-food-menu h2.fh5co-pizza:before {
+  background: url(../images/pizza.png) no-repeat;
   content: "";
   position: absolute;
-  top: 0;
+  top: -20px;
   left: 0;
   width: 64px;
-  height: 45px;
+  height: 64px;
 }
+#fh5co-menus .fh5co-food-menu h2.fh5co-bebida {
+  padding-left: 80px;
+}
+#fh5co-menus .fh5co-food-menu h2.fh5co-bebida:before {
+  background: url(../images/bebidas.png) no-repeat;
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 64px;
+  height: 64px;
+}
+#fh5co-menus .fh5co-food-menu h2.fh5co-doces {
+  padding-left: 80px;
+}
+#fh5co-menus .fh5co-food-menu h2.fh5co-doces:before {
+  background: url(../images/doce.png) no-repeat;
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 64px;
+  height: 64px;
+}
+
 #fh5co-menus .fh5co-food-menu ul {
   padding: 0;
   margin: 0;
@@ -843,6 +864,7 @@ p {
   clear: both;
   float: left;
   width: 80%;
+  
 }
 #fh5co-menus .fh5co-food-menu ul li .fh5co-food-desc > figure {
   width: 20%;
@@ -874,6 +896,63 @@ p {
   font-size: 20px;
   color: #000;
 }
+
+/*substitui responsivo*/
+
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 {
+  padding: 0 0 20px 0;
+  margin: 0 0 20px 0;
+  border-bottom: 1px dotted #ccc;
+  display: block;
+  float: left;
+  width: 100%;
+}
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 > figure {
+  width: 20%;
+  float: left;
+  margin-right: 4%;
+}
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 > figure img {
+  max-width: 100%;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 0;
+}
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 > div {
+  width: 60%;
+  float: left;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+}
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 > div p {
+  margin: 0;
+}
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 > div h3 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+#fh5co-menus .fh5co-food-menu .fh5co-food-desc1 .fh5co-food-pricing {
+  float: right;
+  width: 15%;
+  text-align: right;
+  font-size: 20px;
+  color: #fb6e14;
+} 
+
+
+/*fim do substitui*/
+
 #fh5co-menus .fh5co-food-menu ul li .fh5co-food-pricing {
   float: right;
   width: 20%;
@@ -1191,7 +1270,7 @@ p {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
-  display: inline;
+  *display: inline;
   width: 30px;
   height: 2px;
   color: #fff;
@@ -1354,4 +1433,27 @@ p {
   padding-bottom: 40px;
 }
 
+#fh5co-type h3.with-icon.active:before, #fh5co-type h3.with-icon.active::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -54px;
+  margin-top: -125px;
+  width: 104px;
+  height: 104px;
+  border: 2px solid red;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#fh5co-type h3.active {
+  margin-bottom: 30px;
+  font-style: italic;
+  color: #ff0000;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 110px;
+}
 /*# sourceMappingURL=style.css.map */
