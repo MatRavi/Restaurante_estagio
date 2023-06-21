@@ -104,9 +104,7 @@
   
   <script>
 
-  </script>
-  
-  <script>
+
 	$("#mostra").click(function() {
         let t= $("#password").attr('type');
         if (t === "password") {
@@ -117,8 +115,34 @@
     });
 </script>
 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
     
+    var urlAtual = window.location.href;
+    var urlClass = new URL(urlAtual); 
+    if(urlClass.searchParams.get("session")!=null){
+		swal({
+  			title: "Faça login para acessar!",
+  			buttons: {
+    			confirm: {
+      				text: "OK",
+      				value: true,
+      				visible: true,
+      				closeModal: true,
+    			},
+  			},
+			icon: 'error',
+		}).then((value) => {
+  				if (value) {
+					window.location.href = "logincli.php"
+  				}
+		});
+    }
+</script>
+
+<script>
+
 	$('#sing').click(function(){
 		$('#ntc').html('<div  class="d-flex m-4 align-items-center"><div class="col-4"></div><div class="custom-loader-min"></div></div>')
 		window.setTimeout(formu,1000)

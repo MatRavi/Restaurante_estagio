@@ -1,4 +1,7 @@
+<?php
+include 'testasessao.php';
 
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -156,16 +159,27 @@
 
 		<div id="fh5co-menus" data-section="menu">
 			<div class="container">
-				<div class="row text-center fh5co-heading row-padded" id='cardapio'>
+				<div class="row text-center fh5co-heading row-padded" id='cardapioV'>
 					<div class="col-md-8 col-md-offset-2">
 						<h2 class="heading to-animate">Cardápio</h2>
 					</div>
 				</div>
-					<div class='row'>
-					<div class="col-md-6" id="bebidas">
+
+                    <?php
+					include 'banco/banco.php';
+					$sqlb = "select * from tbproduto where tipo='bebidas'";
+					$consultab = $conexao->query($sqlb);
+					$sqlp = "select * from tbproduto where tipo='pizzas'";
+					$consultap = $conexao->query($sqlp);
+
+				if($consultab->num_rows<$consultap->num_rows){//B  P
+					echo '<div class="col-md-6" id="bebidas2">
 						<div class="fh5co-food-menu to-animate-2">
+						<div class="titul">
 							<h2 class="fh5co-bebida">Bebidas</h2>
-							<?php
+						</div>
+							<div id="bebidas">';
+							
 							include 'banco/banco.php';
 							$sql = "select * from tbproduto where tipo='bebidas'";
 							$consulta = $conexao->query($sql);
@@ -191,13 +205,18 @@
 								}//fim while bebidas
 							  }
 							}
-							?>
+							
+							echo '</div></div></div>';
+
+
+
+					echo "<div class='col-md-6' id='pizzas2'>
+						<div class='fh5co-food-menu to-animate-2'>
+						<div class='titul'>
+							<h2 class='fh5co-pizza'>Pizzas</h2>
 						</div>
-					</div>
-					<div class="col-md-6" id='pizzas'>
-						<div class="fh5co-food-menu to-animate-2">
-							<h2 class="fh5co-pizza">Pizzas</h2>
-							<?php
+							<div  id='pizzas'>";
+
 							include 'banco/banco.php';
 							$sql = "select * from tbproduto where tipo='pizzas'";
 							$consulta = $conexao->query($sql);
@@ -223,14 +242,93 @@
 								}//fim while pizzas
 							  }
 							}
-							?>
-						</div>
+
+							echo '</div></div></div>';
+
+
+						}else{//fim if B  P        começo else P   B
+							
+					echo "<div class='col-md-6' id='pizzas2'>
+					<div class='fh5co-food-menu to-animate-2'>
+					<div class='titul'>
+						<h2 class='fh5co-pizza'>Pizzas</h2>
 					</div>
-					</div>
-					<div class='row'>
-					<div class="col-md-6" id='saladas'>
+						<div  id='pizzas'>";
+
+						include 'banco/banco.php';
+						$sql = "select * from tbproduto where tipo='pizzas'";
+						$consulta = $conexao->query($sql);
+						if($consulta){
+						  if ($consulta->num_rows > 0){
+							while(  $linha=$consulta->fetch_array(MYSQLI_ASSOC)){
+							echo "<ul>
+							<li>
+								<div class='fh5co-food-desc pro' id='".$linha['id_pro']."'>
+									<figure>
+										<img src='images/".$linha['id_pro'].".jpg' class='img-responsive'>
+									</figure>
+									<div>
+										<h3>".$linha['nome']."</h3>
+										<p>".$linha['descricao']."</p>
+									</div>
+								</div>
+								<div class='fh5co-food-pricing'>R$ 
+								".$linha['preco']."
+								</div>
+							</li>
+						</ul>";
+							}//fim while pizzas
+						  }
+						}
+
+						echo '</div></div></div>';
+
+
+						echo '<div class="col-md-6" id="bebidas2">
 						<div class="fh5co-food-menu to-animate-2">
-							<h2 class="fh5co-salada">Saladas</h2>
+						<div class="titul">
+							<h2 class="fh5co-bebida">Bebidas</h2>
+						</div>
+							<div id="bebidas">';
+							
+							include 'banco/banco.php';
+							$sql = "select * from tbproduto where tipo='bebidas'";
+							$consulta = $conexao->query($sql);
+							if($consulta){
+							  if ($consulta->num_rows > 0){
+								while(  $linha=$consulta->fetch_array(MYSQLI_ASSOC)){
+								echo "<ul>
+								<li>
+									<div class='fh5co-food-desc pro' id='".$linha['id_pro']."'>
+										<figure>
+											<img src='images/".$linha['id_pro'].".jpg' class='img-responsive'>
+										</figure>
+										<div>
+											<h3>".$linha['nome']."</h3>
+											<p>".$linha['descricao']."</p>
+										</div>
+									</div>
+									<div class='fh5co-food-pricing'>R$ 
+									".$linha['preco']."
+									</div>
+								</li>
+							</ul>";
+								}//fim while bebidas
+							  }
+							}
+							
+							echo '</div></div></div>';
+
+						}//fim else P B
+
+							?>
+
+					<div class="col-md-6" id='saladas2'>
+						<div class="fh5co-food-menu to-animate-2">
+						<div class="titul">
+						<h2 class="fh5co-salada">Saladas</h2>
+						</div>
+							<div id='saladas'>
 							<?php
 							include 'banco/banco.php';
 							$sql = "select * from tbproduto where tipo='saladas'";
@@ -258,11 +356,19 @@
 							  }
 							}
 							?>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-6" id='pizzas_doces'>
+
+					
+
+
+					<div class="col-md-6" id='pizzas_doces2'>
 						<div class="fh5co-food-menu to-animate-2">
+							<div class="titul">
 							<h2 class="fh5co-doces">Pizzas Doces</h2>
+							</div>
+							<div id='pizzas_doces'>
 							<?php
 							include 'banco/banco.php';
 							$sql = "select * from tbproduto where tipo='pizzas doces'";
@@ -285,17 +391,18 @@
 									".$linha['preco']."
 									</div>
 								</li>
-							</ul>";
+							</ul> ";
 								}//fim while doces
 							  }
 							}
 							?>
+							</div>
 						</div>
 					</div>
-					</div>
+						</div>
+							
 
-
-				</div>
+				</div><!--fim da div cardapio-->
 			</div>
 
 		
@@ -349,26 +456,25 @@
   </div>
 
 
-	<!--modal de carrinho    consertar= rolagem-->
-	<div class="modal" id="carrinhoModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">Carrinho de Compras</h5>
-          <button type="button" class="close" id='fecharcar'>
-            <i class='fas fa-x'></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="cart-items"></div>
-          <div id="total">Total: R$ <span id="cart-total">0.00</span></div>
-        </div>
-		<div class="modal-footer" id="modal-footer">
-
-		</div>
+	<!--modal de carrinho-->
+	<div class="modal" id="carrinhoModal" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Carrinho de Compras</h5>
+        <button type="button" class="close" id='fecharcar'>
+          <i class='fas fa-x'></i>
+        </button>
       </div>
+      <div class="modal-body">
+        <div id="cart-items" style="max-height: 400px; overflow-y: auto;"></div>
+        <div id="total">Total: R$ <span id="cart-total">0.00</span></div>
+      </div>
+      <div class="modal-footer" id="modal-footer"></div>
     </div>
   </div>
+</div>
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -386,6 +492,7 @@
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
 	<script>
+
 		$('#perfil').click(function(){
 			//pega valor de index/codcli
   			var urlAtual = window.location.href;
@@ -407,9 +514,39 @@
 		$('#fecharcar').click(function(){
 			$('#carrinhoModal').fadeOut();
 		})
-			
-		$('#cardapio').click(function(){
-			window.location.reload();
+	</script>
+	<script>
+		
+		$('#cardapioV').click(function(){
+			$('.with-icon').removeClass('active');
+			$.post('crud_card/listarIV.php',{tipo:'pizzas'},function(carda){
+					$('#pizzas').html(carda);
+					$('#pizzas2').removeClass('col-md-12');
+					$('#pizzas2').addClass('col-md-6');
+			$('.pro').click(clickDeItem);
+			})//pizzas
+			$.post('crud_card/listarIV.php',{tipo:'bebidas'},function(carda){
+					$('#bebidas').html(carda);
+					$('#bebidas2').removeClass('col-md-12');
+					$('#bebidas2').addClass('col-md-6');
+			$('.pro').click(clickDeItem);
+			})//bebidas
+			$.post('crud_card/listarIV.php',{tipo:'saladas'},function(carda){
+					$('#saladas').html(carda);
+					$('#saladas2').removeClass('col-md-12');
+					$('#saladas2').addClass('col-md-6');
+			$('.pro').click(clickDeItem);
+			})//saladas
+			$.post('crud_card/listarIV.php',{tipo:'pizzas doces'},function(carda){
+					$('#pizzas_doces').html(carda);
+					$('#pizzas_doces2').removeClass('col-md-12');
+					$('#pizzas_doces2').addClass('col-md-6');
+			$('.pro').click(clickDeItem);
+			})//doces
+			$('#pizzas2 .titul').html('<h2 class="fh5co-pizza">Pizzas</h2>');
+			$('#bebidas2 .titul').html('<h2 class="fh5co-bebida">Bebidas</h2>');
+			$('#saladas2 .titul').html('<h2 class="fh5co-salada">Saladas</h2>');
+			$('#pizzas_doces2 .titul').html('<h2 class="fh5co-doces">Pizzas Doces</h2>');
 		});
 
 		$('.with-icon').click(function(){
@@ -420,9 +557,11 @@
 
 			if(tipo=='pizzas'){
 				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+				 	$('.titul').html('');
+			$('#pizzas2 .titul').html('<h2 class="fh5co-pizza">Pizzas</h2>');
 					$('#pizzas').html(lista);
-					$('#pizzas').removeClass('col-md-6');
-					$('#pizzas').addClass('col-md-12');
+					$('#pizzas2').removeClass('col-md-6');
+					$('#pizzas2').addClass('col-md-12');
 					$('.pro').click(clickDeItem);
 				})//fim post
 				$('#bebidas').html('');
@@ -430,9 +569,11 @@
 				$('#pizzas_doces').html('');
 			}else if(tipo=='bebidas'){
 				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+				 	$('.titul').html('');
+			$('#bebidas2 .titul').html('<h2 class="fh5co-bebida">Bebidas</h2>');
 					$('#bebidas').html(lista);
-					$('#bebidas').removeClass('col-md-6');
-					$('#bebidas').addClass('col-md-12');
+					$('#bebidas2').removeClass('col-md-6');
+					$('#bebidas2').addClass('col-md-12');
 					$('.pro').click(clickDeItem);
 				})//fim post
 				$('#pizzas').html('');
@@ -440,9 +581,11 @@
 				$('#pizzas_doces').html('');
 			} else if(tipo=='saladas'){
 				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+				 	$('.titul').html('');
+			$('#saladas2 .titul').html('<h2 class="fh5co-salada">Saladas</h2>');
 					$('#saladas').html(lista);
-					$('#saladas').removeClass('col-md-6');
-					$('#saladas').addClass('col-md-12');
+					$('#saladas2').removeClass('col-md-6');
+					$('#saladas2').addClass('col-md-12');
 					$('.pro').click(clickDeItem);
 				})//fim post
 				$('#bebidas').html('');
@@ -450,9 +593,11 @@
 				$('#pizzas_doces').html('');
 			}else if(tipo=='pizzas doces'){
 				$.post('crud_card/listarI.php',{tipo:tipo},function(lista){
+				 	$('.titul').html('');
+			$('#pizzas_doces2 .titul').html('<h2 class="fh5co-doces">Pizzas Doces</h2>');
 					$('#pizzas_doces').html(lista);
-					$('#pizzas_doces').removeClass('col-md-6');
-					$('#pizzas_doces').addClass('col-md-12');
+					$('#pizzas_doces2').removeClass('col-md-6');
+					$('#pizzas_doces2').addClass('col-md-12');
 					$('.pro').click(clickDeItem);
 				})//fim post
 				$('#bebidas').html('');
@@ -461,6 +606,13 @@
 			}
 			//fim monta cardapio
 		})
+		/* começo var de car*/
+		
+				var carItems = [];
+				var carQtd = [];
+				var qtdTotal = 0;
+				var carTotal = 0;
+		/* fim var de car*/
 			//começo do monta pg produto
 			$('.pro').click(clickDeItem);
 				function clickDeItem(){
@@ -478,44 +630,100 @@
 
 					})
 				//começo add carrinho
-				var carItems = [];
-				var qtdTotal = 0;
-				var carTotal = 0;
 				// Função para adicionar um item ao carrinho de compras
 				function addToCart(id,qtd,price) {
-					carItems.push({ id: id});
-					qtdTotal += 1 ;//consertar
-					carTotal += price;//consertar
-					$("#cart-items").append("<div class='fh5co-food-menu' id='item"+id+"'><div class='fh5co-food-desc1 '><figure><img src='images/"+id+".jpg' style='width:20%;height:100%;float:left;' class='img-responsive'></figure><div><h3>"+nome+"</h3><p>"+qtd+" Unidades | Preço p/U :R$ "+preco+"</p><button class='btn btn-danger delete-item' id='" + id + "|"+preco+"'><i class='fas fa-trash'></i> Excluir</button></div></div></div>");
-					$("#cart-total").text(carTotal);
+					if (!carItems.includes(id)) {
+    						carItems.push(id); // Adiciona o ID ao array
+  					
+					carQtd.push( qtd);
+					qtdTotal = (qtdTotal*1)+(qtd*1) ;
+					carTotal = (carTotal*1)+(price*qtd);
+					$("#cart-items").append("<div class='fh5co-food-menu' id='item"+id+"'><div class='fh5co-food-desc1 '><figure><img src='images/"+id+".jpg' style='width:20%;height:100%;float:left;' class='img-responsive'></figure><div><h3>"+nome+"</h3><p>"+qtd+" Unidades | Preço p/U :R$ "+preco+"</p><button class='btn btn-danger delete-item' id='" + id + "|"+preco+"|"+qtd+"'><i class='fas fa-trash'></i> Excluir</button></div></div></div>");
+					$("#cart-total").text(carTotal.toFixed(2));
 					if(qtdTotal>0){
 						$('#modal-footer').html('<button id="finalComprar" class="btn btn-info">Finalizar Compra</button>')
 					}else{
 						$('#modal-footer').html('')
 					}
+						swal('Item adicionado ao seu carrinho!',{icon:'success'});
+						$('#modalItem').fadeOut();
+					}else{
+						swal('Item já está adicionado ao seu carrinho!',{icon:'warning'});
+						$('#modalItem').fadeOut();
+					}
 				}
 
-				$('#finalComprar').click(function(){
-					//consertar finalizar
+				//começo guardar venda
+				$(document).on('click', '#finalComprar', function() {
+					swal({
+  title: 'Deseja confirmar a venda?',
+  icon: 'warning',
+  buttons: {
+    nao: {
+      text: 'Não',
+      value: 'nao',
+    },
+    sim: {
+      text: 'Sim',
+      value: 'sim',
+    },
+  },
+}).then((value) => {
+  if (value === 'sim') {
+    let urlAtual = window.location.href;
+    let urlClass = new URL(urlAtual);
+    let cli = urlClass.searchParams.get('index');
+    $.post(
+      'crud_card/inVenda.php',
+      { cli: cli, id: carItems, cQtd: carQtd, qT: qtdTotal, pT: carTotal },
+      function (dadoIn) {
+        if (dadoIn !== 'Error') {
+          if (dadoIn !== '1') {
+            swal('Seu pedido chegará em breve!', { icon: 'success' });
+            // reinicia valores do carrinho
+			window.setTimeout('location.reload()',2000)
+          } else {
+            swal('Erro no servidor!', { icon: 'error' });
+          }
+        } else {
+          swal(
+            'Erro - Dados com problema',
+            'Consulte o restaurante/técnico',
+            { icon: 'error' }
+          );
+        }
+      }
+    );
+  } else if (value === 'nao') {
+    swal('Compra cancelada!', '', {icon:'info'});
+  }
+});
+
 				})
+
+
+				
 				//começo deleta
 				$(document).on('click', '.delete-item', function() {
 				var itemArray = $(this).attr('id').split("|");
 				var itemId = itemArray[0];
 				var itempreco = itemArray[1];
+				var itemQtd = itemArray[2];
 				var itemIndex = -1;
+
 				for (var i = 0; i < carItems.length; i++) {
-					if (carItems[i].id === itemId) {
+					if (carItems[i] === itemId) {
 					itemIndex = i;
 					break;
 					}
 				}
 				if (itemIndex !== -1) {
 					carItems.splice(itemIndex, 1);
-					$("#item" + itemId).remove();
-					qtdTotal -= 1 ;
-					carTotal -= itempreco;
-					$("#cart-total").text(carTotal);
+					$("#item" + itemId).remove();//tira o item
+					qtdTotal = (qtdTotal*1)-(itemQtd*1) ;
+					carTotal = (carTotal*1)-(itempreco*(itemQtd*1));
+					$("#cart-total").text(carTotal.toFixed(2));
+					carQtd.splice(itemIndex, 1);//tira a quantidade
 					if(qtdTotal>0){
 						$('#modal-footer').html('<button id="finalComprar" class="btn btn-info">Finalizar Compra</button>')
 					}else{
@@ -537,8 +745,6 @@
 					if(cli){
 						if(qtd>0){
 						addToCart(id,qtd,price)
-						swal('Item adicionado ao seu carrinho!',{icon:'success'});
-						$('#modalItem').fadeOut();
 						}
 					}else{
 						$('#modalItem').fadeOut();
@@ -555,6 +761,33 @@
 			$('#login').click(function(){
 				window.location.href = "logincli.php";
 			})
+			$('#sair').click(function(){
+				window.location.href = "sair.php";
+			})
+	</script>
+	 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+				var urlAtual = window.location.href;
+    			var urlClass = new URL(urlAtual);
+			if(urlClass.searchParams.get("loginS")!=null){
+				swal({
+					title: "Logout Concluído!",
+					buttons: {
+						confirm: {
+							text: "OK",
+							value: true,
+							visible: true,
+							closeModal: true,
+						},
+					},
+					icon: 'success',
+				}).then((value) => {
+						if (value) {
+							window.location.href = "index.php"
+						}
+				});
+				swal('Logout Concluído!',{icon:'success'})
+    		}
 	</script>
 
 	<!-- Main JS -->
