@@ -169,7 +169,6 @@ include 'testasessao.php';
                                             <td>'.$linha['email'].'</td>
                                             <td>'.$linha['estado'].'|'.$linha['cidade'].'|'.$linha['bairro'].'|'.$linha['rua'].'|'.$linha['CEP'].'</td>
                                             <td>
-                                            <a href="altclient.php?id='.$linha['codcli'].'" title="Alterar" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></a>
                                             <button data-toggle="tooltip" id="'.$linha['codcli'].'" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             </td>
                                             </tr>';
