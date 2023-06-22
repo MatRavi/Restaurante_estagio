@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Jun-2023 às 01:18
+-- Tempo de geração: 22-Jun-2023 às 14:19
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -43,6 +43,16 @@ CREATE TABLE `tbcliente` (
   `numero` int(10) DEFAULT NULL,
   `complemento` varchar(15) DEFAULT NULL COMMENT 'apartamento, bloco, lote, andar, sala, casa'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Acionadores `tbcliente`
+--
+DELIMITER $$
+CREATE TRIGGER `Tgr_Clivenda_Delete` AFTER DELETE ON `tbcliente` FOR EACH ROW BEGIN
+    DELETE FROM tbvenda WHERE codcli = OLD.codcli;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -121,14 +131,6 @@ CREATE TABLE `tbvenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `tbvenda`
---
-
-INSERT INTO `tbvenda` (`id_venda`, `codcli`, `id_pro`, `quantidades`, `data_venda`, `hora_venda`, `valor_total`) VALUES
-(15, 1, '1, 38, 4', '3, 3, 2', '2023-06-21', '17:36:16', '145.92'),
-(16, 1, '5, 37, 48, 47', '1, 3, 3, 1', '2023-06-21', '17:39:25', '79.92');
-
---
 -- Índices para tabelas despejadas
 --
 
@@ -158,7 +160,7 @@ ALTER TABLE `tbvenda`
 -- AUTO_INCREMENT de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  MODIFY `codcli` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codcli` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbproduto`
@@ -170,7 +172,7 @@ ALTER TABLE `tbproduto`
 -- AUTO_INCREMENT de tabela `tbvenda`
 --
 ALTER TABLE `tbvenda`
-  MODIFY `id_venda` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_venda` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
