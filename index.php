@@ -99,23 +99,22 @@ include 'testasessao.php';
 				<div class="container-fluid">
 					<?php
 							if(!isset($_GET['index'])){
-							echo"<div class='fh5co-menu-1 col-3'>
-								<a href='#' id='login'>login</a>
+							echo"<div class='fh5co-menu-1 col-6'>
+								<a href='#' id='login'> Login</a>
 								</div>
-								<div class='fh5co-logo'>
-									<a href='#'>Mario's Pizzeria</a>
+								<div class='fh5co-logo col-3'>
+									<a href='#'>Mario's</a>
 								</div>
-								<div class='fh5co-menu-2'>
 							</div>";
 					    }else{
-							echo "<div class='fh5co-menu-1'>
+							echo "<div class='fh5co-menu-1 col-3'>
 							<a href='#' id='carrinho'><i class='fas fa-shopping-cart'></i> Compras
 							</a>
 							</div>
-							<div class='fh5co-logo'>
-								<a href='#'>Mario's Pizzeria</a>
+							<div class='fh5co-logo col-3'>
+								<a href='#'>Mario's</a>
 							</div>
-							<div class='fh5co-menu-2'>
+							<div class='fh5co-menu-2 col-6'>
 							<a href='#' id='perfil'><i class='fas fa-user'></i> Perfil</a>
 							<a href='#' id='sair'><i class='fas fa-sign-out-alt'></i>
 							Sair</a>
