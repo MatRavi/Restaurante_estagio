@@ -1,3 +1,6 @@
+<?php
+include 'testasessao.php';
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 

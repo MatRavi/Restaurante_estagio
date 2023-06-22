@@ -1,13 +1,14 @@
 <?php
 include 'testasessao.php';
 ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Clientes</title>
+    <title>Produtos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -135,61 +136,59 @@ include 'testasessao.php';
             <!-- Mobile Menu end -->
             
         </div>
-        <div class="product-status mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="product-status-wrap">
-                            <h4>Products List</h4>
-                            <div class="add-product">
-                                <a href="product-edit.html">Add Product</a>
+        <!-- Single pro tab start-->
+<div class="single-product-tab-area mg-b-30">
+            <!-- Single pro tab review Start-->
+            <div class="single-pro-review-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-tab-pro-inner">
+                                <ul id="myTab3" class="tab-review-design">
+                                    <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i>Edição de Produto</a></li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content custom-product-edit">
+                                    <div class="product-tab-list tab-pane fade active in" id="description">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="review-content-section">
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
+                                                        <input type="text" id="nome" class="form-control" placeholder="Nome Produto">
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                                                        <input type="text" id="preco" class="form-control" placeholder="Preço">
+                                                    </div>
+                                                    <select name="select" Id='tipo' class="form-control pro-edt-select form-control-primary">
+															<option value="pizzas">pizzas</option>
+															<option value="saladas">saladas</option>
+															<option value="bebidas">bebidas</option>
+															<option value="pizzas doces">pizzas doces</option>
+														</select>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="review-content-section">
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
+                                                        <textarea type="text" id="descricao" class="form-control" placeholder="Descrição Do Produto" style="max-height: 150px;min-height: 30px;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="text-center custom-pro-edt-ds" id="criar">
+                                                    <button type="button" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Adicionar Produto
+														</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <table id="example1">
-                                <tr>
-                                    <th>COD</th>
-                                    <th>Nome</th>
-                                    <th>Fone</th>
-                                    <th>Email</th>
-                                    <th>Endereço</th>
-                                    <th>Opções</th>
-                                </tr>
-                                
-                                <tbody id="tbcli">
-                                <?php
-                                    include '../banco/banco.php';
-                                    $sql = "select * from tbcliente";
-                                    $consulta = $conexao->query($sql);
-                                    if($consulta){
-                                        if ($consulta->num_rows > 0){
-                                            while($linha=$consulta->fetch_array(MYSQLI_ASSOC)){
-                                            echo' <tr>
-                                            <td>'.$linha['codcli'].'</td>
-                                            <td>'.$linha['nome'].'</td>
-                                            <td>'.$linha['fone'].'</td>
-                                            <td>'.$linha['email'].'</td>
-                                            <td>'.$linha['estado'].'|'.$linha['cidade'].'|'.$linha['bairro'].'|'.$linha['rua'].'|'.$linha['CEP'].'</td>
-                                            <td>
-                                            <a href="altclient.php?id='.$linha['codcli'].'" title="Alterar" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></a>
-                                            <button data-toggle="tooltip" id="'.$linha['codcli'].'" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                            </td>
-                                            </tr>';
-                                        }
-                                        
-                                        }
-                                    }
-                                ?>
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>COD</th>
-                                    <th>Nome</th>
-                                    <th>Fone</th>
-                                    <th>Email</th>
-                                    <th>Endereço</th>
-                                    <th>Opções</th>
-                                </tr>
-                                </tfoot>
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -208,7 +207,6 @@ include 'testasessao.php';
         </div>
     </div>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -257,33 +255,29 @@ include 'testasessao.php';
 		============================================ -->
     <script src="js/main.js"></script>
     
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
     <script>
         
-  $("#tbcli").on('click','button', function(){
-                              let iddelete = $(this).attr("id");    
-                              swal({
-                                title: "DESEJA DELETAR?",
-                                text: "procedimento para deletar dados!",
-                                icon: "info",
-                                buttons: ["Não", "Sim"],
-                                dangerMode: true,
-                              })//fim swal
-                              .then((willDelete) => {
-                                if (willDelete) {
-                                  $.post('deletecli.php', {id:iddelete} ,function(retorndelete){
-                                  if(retorndelete != 'vazio'){
-                                    swal("dados deletados", {  icon: "success",	});
+  $("#criar").on('click','button', function(){
+                              let nome = $("#nome").val();    
+                              let descricao = $("#descricao").val();    
+                              let preco = $("#preco").val();    
+                              let tipo = $("#tipo").val(); 
+    if(nome!='' && descricao!='' && preco!='' && tipo!=''){
+
+                        $.post("salvaP.php",{nome:nome,descricao:descricao,preco:preco,tipo:tipo},function(retP){
+                            if(retP!='vazio'){
+                                    swal("Dados Registrados", {  icon: "success",	});
                                     window.setTimeout('location.reload()',1000);
-                                      }else{
-                                        swal("não deletou!", {  icon: "error",	});
-                                      }
-                                  });//fim do post do delete conceitos
-                                } else {
-                                swal("não deletou!", {  icon: "error",	});
-                                }//fim do if
-                              });//fim do then       
+                            }else{
+                                    swal("ERRO INTERNO!", {  icon: "error",	});
+                            }
+                        })//fim do post de salvaP
+                }else{
+                  swal("1 ou mais campos não preenchidos!", {  icon: "warning",	});
+                }                  
   });
 
     </script>

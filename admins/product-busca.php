@@ -1,3 +1,6 @@
+<?php
+include 'testasessao.php';
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -99,11 +102,14 @@
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="icon nalika-menu-task"></i>
-												</button>
+                                              <i class="icon nalika-menu-task"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     
+                            <div class="add-product">
+                                <a href="criaP.php">Adicionar Produto</a>
+                            </div>
                                 </div>
                             </div>
                         </div>
@@ -138,9 +144,6 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
                             <h4>Products List</h4>
-                            <div class="add-product">
-                                <a href="product-edit.html">Add Product</a>
-                            </div>
                             <table id="example1">
                                 <tr>
                                     <th>COD</th>
@@ -166,7 +169,7 @@
                                             <td>'.$linha['preco'].'</td>
                                             <td>'.$linha['tipo'].'</td>
                                             <td>
-                                            <a href="altclient.php?id='.$linha['id_pro'].'" title="Alterar" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></a>
+                                            <a href="alterarP.php?id='.$linha['id_pro'].'" title="Alterar" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></a>
                                             <button data-toggle="tooltip" id="'.$linha['id_pro'].'" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             </td>
                                             </tr>';
